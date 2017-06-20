@@ -1,0 +1,48 @@
+header
+  background-color mediumseagreen
+  color white
+  display flex
+  flex-direction column
+  align-items center
+  padding 10px
+  h2
+    font-family 'Monoton', cursive
+    text-align center
+
+  h5
+    font-family 'Raleway', sans-serif
+    text-align center
+
+  .rbc-categorysearch
+    width 70%
+
+.content
+  display flex
+  flex-direction column
+  flex-wrap wrap
+  height 70vh
+  width 90%
+  align-content center
+  margin 0 auto
+  .search-params
+    width 40%
+
+  .rbc-resultlist
+    width 40%
+
+@media all and (max-width: 1000px)
+  .content
+    .search-params
+      width 50%
+
+    .rbc-resultlist
+      width 50%
+
+@media all and (max-width: 500px)
+  .content
+    flex-wrap nowrap
+    .search-params
+      width 100%
+
+    .rbc-resultlist
+      width 100%

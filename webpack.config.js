@@ -11,14 +11,18 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.js$/, 
-				exclude: /node_modules/, 
+				test: /\.js$/,
+				exclude: /node_modules/,
 				use: ["babel-loader"]
 			},
 			{
 				test: /node_modules\/JSONStream\/index\.js$/,
 				use: ["shebang-loader", "babel-loader"]
-			}
+			},
+			{
+	      test: /\.styl$/, 
+	      use: ['style-loader', 'css-loader', 'stylus-loader']
+	    }
 		]
 	},
 	externals: ["ws"]
