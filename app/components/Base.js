@@ -55,7 +55,6 @@ class Base extends Component {
 							appbaseField="tags"
 							title="Repo Tags"
 							searchPlaceholder="Search Tags"
-							showSearch
 							initialLoader="Loading Tags..."
 						/>
 						<RangeSlider
