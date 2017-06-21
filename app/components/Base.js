@@ -13,7 +13,7 @@ class Base extends Component {
 
 	onData(res) {
 		const result = {
-			image: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png',
+			image: res.avatar,
 			desc: (
 				<div className="card-layout">
 					<div className="card-title">{res.repo}</div>
@@ -33,8 +33,8 @@ class Base extends Component {
 	render() {
 		return (
 			<ReactiveBase
-				app="github-reactive-search"
-		    credentials="T3EbxIJMZ:9c6aa498-5770-451b-916a-663b232ca0f7"
+				app="divgitxplore"
+		    credentials="pRT1OUQPM:4c3263ae-e543-4b4b-867a-a30014fae8d5"
 				theme="rbc-green"
 			>
 				<header>
@@ -81,6 +81,7 @@ class Base extends Component {
 						title="Results"
 						initialLoader="Loading data..."
 						noResults="Oops! Nothing found."
+						pagination={true}
 						onData={this.onData}
 						react={{
 							and: ["SearchSensor", "TagSensor", "RangeSliderSensor"]
