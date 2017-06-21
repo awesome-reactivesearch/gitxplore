@@ -3,7 +3,7 @@ import {
 	ReactiveBase,
 	CategorySearch,
 	ResultList,
-	MultiList,
+	MultiDropdownList,
 	RangeSlider
 } from '@appbaseio/reactivesearch';
 
@@ -47,10 +47,8 @@ class Base extends Component {
 						placeholder="Search Repos"
 						autocomplete={false}
 					/>
-				</header>
-				<div className="content">
 					<div className="search-params">
-						<MultiList
+						<MultiDropdownList
 							componentId="TagSensor"
 							appbaseField="tags"
 							title="Repo Tags"
@@ -62,13 +60,10 @@ class Base extends Component {
 							componentId="RangeSliderSensor"
 							appbaseField="stars"
 							initialLoader="Loading data..."
+							showHistogram={false}
 							range={{
 								"start": 0,
 								"end": 70000
-							}}
-							rangeLabels={{
-								start: "0 ⭐s",
-								end: "70K ⭐s"
 							}}
 							defaultSelected={{
 								"start": 0,
@@ -77,6 +72,8 @@ class Base extends Component {
 							stepValue={50}
 						/>
 					</div>
+				</header>
+				<div className="content">
 					<ResultList
 						componentId="SearchResult"
 						appbaseField="repo"

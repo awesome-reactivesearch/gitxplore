@@ -16,6 +16,31 @@ header
   .rbc-categorysearch
     width 70%
 
+.search-params
+  display flex
+  width 60%
+  justify-content center
+  .rbc-rangeslider
+    background-color mediumseagreen
+    border 2px solid white
+    border-radius 10px
+    padding 20px
+    margin 20px
+    width 100%
+
+    .rbc-title
+      color white
+
+  .rbc-multidropdownlist
+    background-color mediumseagreen
+    border 2px solid white
+    border-radius 10px
+    padding 20px
+    margin 20px
+    width 100%
+    .rbc-title
+      color white
+
 .content
   display flex
   flex-direction column
@@ -24,25 +49,29 @@ header
   width 90%
   align-content center
   margin 0 auto
-  .search-params
-    width 40%
 
   .rbc-resultlist
     width 40%
 
+@media all and (max-width: 1200px)
+  .search-params
+    width 70%
+
 @media all and (max-width: 1000px)
   .content
-    .search-params
-      width 50%
-
     .rbc-resultlist
       width 50%
+
+  .search-params
+    flex-direction column
+    align-items center
+    width 50%
 
 @media all and (max-width: 500px)
   .content
     flex-wrap nowrap
-    .search-params
-      width 100%
-
     .rbc-resultlist
       width 100%
+
+  .search-params
+    width 80%
