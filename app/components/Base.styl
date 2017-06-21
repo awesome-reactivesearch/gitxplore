@@ -41,26 +41,54 @@ header
     .rbc-title
       color white
 
-.content
+// .content
+//   display flex
+//   flex-direction column
+//   flex-wrap wrap
+//   height 70vh
+//   width 90%
+//   align-content center
+//   margin 0 auto
+//
+//   .rbc-resultlist
+//     width 40%
+
+.card-layout
+  padding 10px
   display flex
   flex-direction column
-  flex-wrap wrap
-  height 70vh
-  width 90%
-  align-content center
-  margin 0 auto
+  align-items center
+  .card-title
+    color mediumseagreen
 
-  .rbc-resultlist
-    width 40%
+.rbc-resultcard
+  margin 10px
+  padding 10px
+  width 80%
+  margin 0 auto
+  border none
+  box-shadow none
+  .rbc-resultcard-item
+    border 2px solid mediumseagreen
+    border-radius 5px
+    padding 5px
+    margin 5px
+    &:hover
+      background-color mediumseagreen
+      color white
+      .card-title
+        color white
+      .card-layout
+        color white
 
 @media all and (max-width: 1200px)
   .search-params
     width 70%
 
 @media all and (max-width: 1000px)
-  .content
-    .rbc-resultlist
-      width 50%
+  // .content
+  //   .rbc-resultlist
+  //     width 50%
 
   .search-params
     flex-direction column
@@ -68,10 +96,10 @@ header
     width 50%
 
 @media all and (max-width: 500px)
-  .content
-    flex-wrap nowrap
-    .rbc-resultlist
-      width 100%
+  // .content
+  //   flex-wrap nowrap
+  //   .rbc-resultlist
+  //     width 100%
 
   .search-params
     width 80%

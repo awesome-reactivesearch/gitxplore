@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
 	ReactiveBase,
 	CategorySearch,
-	ResultList,
+	ResultCard,
 	MultiDropdownList,
 	RangeSlider
 } from '@appbaseio/reactivesearch';
@@ -13,13 +13,13 @@ class Base extends Component {
 
 	onData(res) {
 		const result = {
-			title: res.repo,
 			image: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png',
 			desc: (
-				<div>
-					<div><strong>{res.stars}</strong> 🌟s</div>
-					<div>Created by <strong>{res.owner}</strong></div>
-					<div>Created on <strong>{(() => {
+				<div className="card-layout">
+					<div className="card-title">{res.repo}</div>
+					<div className="card-stars"><strong>{res.stars}</strong> 🌟s</div>
+					<div className="card-creator">Created by <strong>{res.owner}</strong></div>
+					<div className="card-date">Created on <strong>{(() => {
 						const date =  new Date(res['created-on'])
 						return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
 					})()}</strong></div>
@@ -54,6 +54,7 @@ class Base extends Component {
 							title="Repo Tags"
 							searchPlaceholder="Search Tags"
 							initialLoader="Loading Tags..."
+							defaultSelected={[]}
 						/>
 						<RangeSlider
 							title="Stars 🌠"
@@ -74,14 +75,12 @@ class Base extends Component {
 					</div>
 				</header>
 				<div className="content">
-					<ResultList
+					<ResultCard
 						componentId="SearchResult"
 						appbaseField="repo"
 						title="Results"
 						initialLoader="Loading data..."
 						noResults="Oops! Nothing found."
-						from={0}
-						size={20}
 						onData={this.onData}
 						react={{
 							and: ["SearchSensor", "TagSensor", "RangeSliderSensor"]
