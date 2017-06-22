@@ -17,8 +17,8 @@ class Base extends Component {
 			desc: (
 				<div className="card-layout">
 					<div className="card-title">{res.repo}</div>
-					<div className="card-stars"><strong>{res.stars}</strong> 🌟s</div>
-					<div className="card-creator">Created by <strong>{res.owner}</strong></div>
+					<div className="card-stars">{res.stars} 🌟s</div>
+					<div className="card-creator">Created by {res.owner}</div>
 					<div className="card-date">Created on <strong>{(() => {
 						const date =  new Date(res['created-on'])
 						return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
@@ -38,40 +38,44 @@ class Base extends Component {
 				theme="rbc-green"
 			>
 				<header>
-					<h2>GitXplore</h2>
-					<h5>A reactive github repo search</h5>
-					<CategorySearch
-						componentId="SearchSensor"
-						appbaseField="repo"
-						categoryField="language"
-						placeholder="Search Repos"
-						autocomplete={false}
-					/>
+					<div className="title">
+						<h3>GitXplore</h3>
+					</div>
 					<div className="search-params">
-						<MultiDropdownList
-							componentId="TagSensor"
-							appbaseField="tags"
-							title="Repo Tags"
-							searchPlaceholder="Search Tags"
-							initialLoader="Loading Tags..."
-							defaultSelected={[]}
+						<CategorySearch
+							title="Repos"
+							componentId="SearchSensor"
+							appbaseField="repo"
+							categoryField="language"
+							placeholder="Search Repos"
+							autocomplete={false}
 						/>
-						<RangeSlider
-							title="Stars 🌠"
-							componentId="RangeSliderSensor"
-							appbaseField="stars"
-							initialLoader="Loading data..."
-							showHistogram={false}
-							range={{
-								"start": 0,
-								"end": 70000
-							}}
-							defaultSelected={{
-								"start": 0,
-								"end": 70000
-							}}
-							stepValue={50}
-						/>
+						<div className="search-filters">
+							<MultiDropdownList
+								componentId="TagSensor"
+								appbaseField="tags"
+								title="Repo Tags"
+								searchPlaceholder="Search Tags"
+								initialLoader="Loading Tags..."
+								defaultSelected={[]}
+							/>
+							<RangeSlider
+								title="Stars 🌠"
+								componentId="RangeSliderSensor"
+								appbaseField="stars"
+								initialLoader="Loading data..."
+								showHistogram={false}
+								range={{
+									"start": 0,
+									"end": 70000
+								}}
+								defaultSelected={{
+									"start": 0,
+									"end": 70000
+								}}
+								stepValue={50}
+							/>
+						</div>
 					</div>
 				</header>
 				<div className="content">
@@ -109,6 +113,7 @@ class Base extends Component {
 							}
 						]}
 					/>
+					<p className="footer">Made with <span className="go-green">❤</span> at <a href="https://appbase.io/" target="_blank">appbase.io</a></p>
 				</div>
 			</ReactiveBase>
 		);
