@@ -60,7 +60,7 @@ class Base extends Component {
 								defaultSelected={[]}
 							/>
 							<RangeSlider
-								title="Stars 🌠"
+								title="Repo Stars"
 								componentId="RangeSliderSensor"
 								appbaseField="stars"
 								initialLoader="Loading data..."
@@ -72,6 +72,10 @@ class Base extends Component {
 								defaultSelected={{
 									"start": 0,
 									"end": 70000
+								}}
+								rangeLabels={{
+									"start": "0 Stars",
+									"end": "70K Stars"
 								}}
 								stepValue={50}
 							/>
