@@ -16,16 +16,17 @@ class Base extends Component {
 			image: res.avatar,
 			desc: (
 				<div className="card-layout">
-					<div className="card-title">{res.repo}</div>
-					<div className="card-stars">{res.stars} 🌟s</div>
-					<div className="card-creator">Created by {res.owner}</div>
-					<div className="card-date">Created on <strong>{(() => {
-						const date =  new Date(res['created-on'])
-						return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
-					})()}</strong></div>
+					<div className="card-title"><a href={res.url} target="_blank">{res.owner}/<br />{res.repo}</a></div>
+					<a href={res.url} target="_blank">
+						<div className="card-stars">
+							<i className="fa fa-star" aria-hidden="true" />{res.stars}
+						</div>
+					</a>
+					<div className="card-tags">
+						{res.tags.map(tag => <span className="card-tag">#{tag}</span>)}
+					</div>
 				</div>
-			),
-			url: res.url
+			)
 		};
 		return result;
 	}
@@ -105,6 +106,16 @@ class Base extends Component {
 								label: "Lowest rated",
 								appbaseField: "stars",
 								sortBy: "asc"
+							},
+							{
+								label: "Alphabetic",
+								appbaseField: "owner",
+								sortBy: "asc"
+							},
+							{
+								label: "Reverse alphabetic",
+								appbaseField: "owner",
+								sortBy: "desc"
 							},
 							{
 								label: "Most recent",
