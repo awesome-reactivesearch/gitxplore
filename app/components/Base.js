@@ -86,10 +86,11 @@ class Base extends Component {
 					<ResultCard
 						componentId="SearchResult"
 						appbaseField="repo"
-						title="Results"
 						initialLoader="Loading data..."
 						noResults="Oops! Nothing found."
 						pagination={true}
+						size={12}
+						paginationAt="top"
 						onData={this.onData}
 						react={{
 							and: ["SearchSensor", "TagSensor", "RangeSliderSensor"]
