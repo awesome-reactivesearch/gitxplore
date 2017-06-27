@@ -11,11 +11,12 @@ header
   flex-direction column
   padding-left 10px
   .title
-    display flex
-    align-items baseline
-    justify-content center
+    text-align center
+    padding-top 30px
+    padding-right 15px
     h3
       font-family 'Monoton', cursive
+      font-size 38px
 
     h6
       font-family 'Raleway', sans-serif
@@ -42,15 +43,17 @@ header
 
 .search-params
   display flex
-  width 80%
+  width 90%
   align-self center
   .search-filters
     display flex
-    flex 1.7
+    flex 2
   .rbc-categorysearch
     flex 1
     background-color mediumseagreen
     box-shadow none
+    top -5px
+    padding-bottom 5px
 
     .rbc-title
       color white
@@ -60,14 +63,21 @@ header
     box-shadow none
     flex 1
 
+    .rbc-rangeslider-container
+      padding 0
+
     .rbc-title
       color white
+      padding 0
+      margin-top 10px
+
+    .rc-slider
+      margin-top -10px
 
   .rbc-multidropdownlist
     background-color mediumseagreen
     box-shadow none
     flex 1
-    padding-top 10px
     z-index 2
     .rbc-title
       color white
@@ -82,6 +92,7 @@ header
   .card-tags
     display flex
     width 200px
+    height 50px
     flex-wrap wrap
     font-weight bold
     justify-content center
@@ -144,10 +155,6 @@ header
 .rbc-pagination
   text-align center
 
-@media all and (max-width: 1200px)
-  .search-params
-    width 85%
-
 @media all and (max-width: 900px)
   .search-params
     flex-direction column
@@ -167,6 +174,8 @@ header
         flex-direction column
         align-items center
 
-@media all and (max-width: 480px)
+@media all and (max-width: 680px)
   .search-filters
     flex-direction column
+    width 85%
+    margin 0 auto

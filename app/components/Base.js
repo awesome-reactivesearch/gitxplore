@@ -39,19 +39,19 @@ class Base extends Component {
 				theme="rbc-green"
 			>
 				<header>
-					<div className="title">
-						<h3>GitXplore</h3>
-					</div>
 					<div className="search-params">
-						<CategorySearch
-							title="Repos"
-							componentId="SearchSensor"
-							appbaseField="repo"
-							categoryField="language"
-							placeholder="Search Repos"
-							autocomplete={false}
-						/>
+						<div className="title">
+							<h3>GitXplore</h3>
+						</div>
 						<div className="search-filters">
+							<CategorySearch
+								title="Repos"
+								componentId="SearchSensor"
+								appbaseField="repo"
+								categoryField="language"
+								placeholder="Search Repos"
+								autocomplete={false}
+							/>
 							<MultiDropdownList
 								componentId="TagSensor"
 								appbaseField="tags"
@@ -129,7 +129,6 @@ class Base extends Component {
 							}
 						]}
 					/>
-					<p className="footer">Made with <span className="go-green">❤</span> at <a href="https://appbase.io/" target="_blank">appbase.io</a></p>
 				</div>
 			</ReactiveBase>
 		);
