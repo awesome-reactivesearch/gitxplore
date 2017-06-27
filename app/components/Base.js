@@ -13,17 +13,25 @@ class Base extends Component {
 
 	onData(res) {
 		const result = {
-			image: res.avatar,
 			desc: (
 				<div className="card-layout">
-					<div className="card-title"><a href={res.url} target="_blank">{res.owner}/<br />{res.repo}</a></div>
-					<a href={res.url} target="_blank">
-						<div className="card-stars">
-							<i className="fa fa-star" aria-hidden="true" />{res.stars}
+					<div className="card-left">
+						<img src={res.avatar} className="card-image" />
+						<a href={res.url} target="_blank">
+							<div className="card-stars">
+								<i className="fa fa-star" aria-hidden="true" />{res.stars}
+							</div>
+						</a>
+					</div>
+					<div className="card-right">
+						<div className="card-title">
+							<a href={res.url} target="_blank">
+								{res.owner}/{res.owner.length > 8 || res.repo.length > 10 ? <br /> : ''}{res.repo}
+							</a>
 						</div>
-					</a>
-					<div className="card-tags">
-						{res.tags.map(tag => <span className="card-tag">#{tag}</span>)}
+						<div className="card-tags">
+							{res.tags.slice(0, 5).map(tag => <span className="card-tag" key={tag}>#{tag}</span>)}
+						</div>
 					</div>
 				</div>
 			)
@@ -51,6 +59,7 @@ class Base extends Component {
 								categoryField="language"
 								placeholder="Search Repos"
 								autocomplete={false}
+								URLParams={true}
 							/>
 							<MultiDropdownList
 								componentId="TagSensor"
@@ -58,6 +67,7 @@ class Base extends Component {
 								title="Repo Tags"
 								searchPlaceholder="Search Tags"
 								initialLoader="Loading Tags..."
+								URLParams={true}
 								defaultSelected={[]}
 							/>
 							<RangeSlider
@@ -67,16 +77,16 @@ class Base extends Component {
 								initialLoader="Loading data..."
 								showHistogram={false}
 								range={{
-									"start": 0,
-									"end": 70000
+										"start": 0,
+										"end": 70000
 								}}
 								defaultSelected={{
-									"start": 0,
-									"end": 70000
+										"start": 0,
+										"end": 70000
 								}}
 								rangeLabels={{
-									"start": "0 Stars",
-									"end": "70K Stars"
+										"start": "0 Stars",
+										"end": "70K Stars"
 								}}
 								stepValue={50}
 							/>
@@ -91,7 +101,6 @@ class Base extends Component {
 						noResults="Oops! Nothing found."
 						pagination={true}
 						size={12}
-						paginationAt="top"
 						onData={this.onData}
 						react={{
 							and: ["SearchSensor", "TagSensor", "RangeSliderSensor"]
