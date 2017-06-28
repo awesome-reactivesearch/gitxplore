@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@appbaseio/reactivebase@1.0.0-alpha52":
-  version "1.0.0-alpha52"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-alpha52.tgz#59b73b99bffc36a0905d42caef6c9b997a555991"
+"@appbaseio/reactivebase@1.0.0-alpha54":
+  version "1.0.0-alpha54"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-alpha54.tgz#436a2399891d15cf64a79abca9403411bd4a9ccc"
   dependencies:
     appbase-js "^0.11.0"
     babel-preset-stage-0 "^6.5.0"
@@ -31,11 +31,11 @@
     grunt "~0.4.0"
     serve-static "^1.10.2"
 
-"@appbaseio/reactivemaps@1.0.0-alpha43":
-  version "1.0.0-alpha43"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-alpha43.tgz#c578fbd579ee5822abf69120b5557c411718a399"
+"@appbaseio/reactivemaps@1.0.0-alpha45":
+  version "1.0.0-alpha45"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-alpha45.tgz#1d00f791449b64de1b438d2dc1b6c5db5cb481a0"
   dependencies:
-    "@appbaseio/reactivebase" "1.0.0-alpha52"
+    "@appbaseio/reactivebase" "1.0.0-alpha54"
     "@appbaseio/reactivemaps-manual" "1.0.0-alpha"
     appbase-js "^0.11.0"
     axios "^0.15.2"
@@ -54,11 +54,11 @@
     react-select "^1.0.0-rc.3"
     react-tooltip "^3.1.8"
 
-"@appbaseio/reactivesearch@^0.5.21":
-  version "0.5.21"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-0.5.21.tgz#12b59ccd5d8fc19e72fa46cc0084f0b8bd04d7ab"
+"@appbaseio/reactivesearch@^0.5.24":
+  version "0.5.24"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-0.5.24.tgz#86c71b0032910cd1025679751eb785715cd36974"
   dependencies:
-    "@appbaseio/reactivemaps" "1.0.0-alpha43"
+    "@appbaseio/reactivemaps" "1.0.0-alpha45"
     classnames "^2.2.5"
     jquery "^3.1.1"
     lodash "^4.15.0"
@@ -66,6 +66,7 @@
     node-sass "^4.5.1"
     rc-slider "^5.4.0"
     react "15.4.2"
+    react-autosuggest "^9.3.0"
     react-dom "15.4.2"
     react-select "^1.0.0-rc.3"
     react-stars "^2.1.0"
@@ -4058,9 +4059,9 @@ react-addons-test-utils@^15.4.2:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.6.0.tgz#062d36117fe8d18f3ba5e06eb33383b0b85ea5b9"
 
-react-autosuggest@^9.0.1:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.1.0.tgz#08b2462ffaf0368d3d6b511c286ca3df7a6f9748"
+react-autosuggest@^9.0.1, react-autosuggest@^9.3.0:
+  version "9.3.1"
+  resolved "https://registry.yarnpkg.com/react-autosuggest/-/react-autosuggest-9.3.1.tgz#cf106d95e650de292a08e6506372d3eb4b6b2614"
   dependencies:
     prop-types "^15.5.10"
     react-autowhatever "^10.1.0"
