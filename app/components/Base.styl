@@ -3,6 +3,24 @@ $darkseagreen = #008000
 body
   height 100vh
 
+.toggle-button
+  cursor pointer
+  color white
+  border 2px solid white
+  border-radius 5px
+  padding 10px
+  margin 10px
+  text-align center
+  &:hover
+    background-color white
+    color mediumseagreen
+
+.full-header
+  header
+    height auto
+  .search-filters
+    display flex !important
+
 header
   width 100%
   background-color mediumseagreen
@@ -11,16 +29,21 @@ header
   // padding-bottom: 60px
   flex-direction column
   padding-left 10px
+  position fixed
+  z-index 2
   .title
-    text-align center
-    padding-top 30px
-    padding-right 15px
+    display flex
     h3
+      padding-right 15px
+      text-align center
       font-family 'Monoton', cursive
       font-size 38px
 
     h6
       font-family 'Raleway', sans-serif
+
+    a
+      color white
 
 .footer
   font-family 'Raleway', sans-serif
@@ -54,6 +77,7 @@ header
     box-shadow none
     top -5px
     padding-bottom 5px
+    color black
 
     .rbc-title
       color white
@@ -81,37 +105,45 @@ header
     z-index 2
     .rbc-title
       color white
+      padding-left 20px
 
 .card-layout
   padding 5px
   margin 5px
   display flex
   .card-image
-    max-width 150px
+    max-width 100px
   .card-left
     display flex
     flex-direction column
   .card-right
     display flex
     flex-direction column
+    width 100%
   .card-tags
     display flex
-    width 225px
+    width 250px
     height 35px
     flex-wrap wrap
     font-weight bold
     justify-content center
     flex-direction row !important
-    padding-top 15px
     margin-bottom 50px
     position relative
     .card-tag
+      cursor pointer
       padding 0 2px
+      margin 2px
+      background-color mediumseagreen
+      color white
+      border-radius 3px
+      &:hover
+        background-color $darkseagreen
 
   .card-title
     padding 2px
     padding-bottom 15px
-    max-width 200px
+    max-width 220px
     color mediumseagreen
     white-space nowrap
     overflow: hidden
@@ -145,13 +177,16 @@ header
 .content
   flex 1
   position relative
+  top 150px
   height 100%
 
 .rbc-resultcard
   .rbc-resultstats
     margin-left 5%
+    position absolute
   .rbc-sortoptions
     margin-right 5% !important
+    z-index 1
   .rbc-resultcard-container
     box-shadow none
     padding 5px
@@ -172,6 +207,7 @@ header
 .rbc-pagination
   text-align center
 
+
 @media all and (max-width: 900px)
   header
     *
@@ -181,6 +217,13 @@ header
       margin-bottom -10px
     .search-params
       flex-direction column
+
+  .content
+    top 220px
+
+    .rbc-resultcard
+      .rbc-resultstats
+        position relative
 
 @media all and (max-width: 800px)
   .card-layout
@@ -198,7 +241,14 @@ header
         align-items center
 
 @media all and (max-width: 680px)
+  .content
+    top 180px
   .search-filters
+    display none !important
     flex-direction column
     width 85%
     margin 0 auto
+
+@media all and (min-width: 680px)
+  .toggle-button
+    display none
