@@ -46,11 +46,11 @@ class Base extends Component {
 			desc: (
 				<div className="card-layout">
 					<div className="card-top">
-						<img src={res.avatar} className="card-image" />
 						<div className="card-details">
 							<div className="card-title">
+								<img src={res.avatar} className="card-image" />
 								<a href={res.url} target="_blank">
-									{res.owner}/{res.owner.length + res.name.length > 25 ? <br /> : ''}{res.name}
+									{res.owner}/{res.owner.length + res.name.length > 27 ? <br /> : ''}{res.name}
 								</a>
 							</div>
 							<div className="card-description">
@@ -102,14 +102,6 @@ class Base extends Component {
 								<a href="/">
 									<h3><span>Git</span><span>Xplore</span></h3>
 								</a>
-								<CategorySearch
-									componentId="repo"
-									appbaseField="name"
-									categoryField="language"
-									placeholder="Search Repos"
-									autocomplete={false}
-									URLParams={true}
-								/>
 							</div>
 							<div className="toggle-button" onClick={this.handleToggleFilters}>
 								<i className="fa fa-search-plus" aria-hidden="true" />
@@ -152,14 +144,21 @@ class Base extends Component {
 					</header>
 				</div>
 				<div className="content">
+					<CategorySearch
+						componentId="repo"
+						appbaseField="name"
+						categoryField="language"
+						placeholder="Search Repos"
+						autocomplete={false}
+						URLParams={true}
+					/>
 					<ResultCard
 						componentId="SearchResult"
 						appbaseField="name"
 						initialLoader="Loading data..."
 						noResults="Oops! Nothing found."
 						pagination={true}
-						paginationAt="both"
-						size={12}
+						size={6}
 						onData={(res) => this.onData(res, this.toggleTag)}
 						react={{
 							and: ["repo", "tags", "stars"]
