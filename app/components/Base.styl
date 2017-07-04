@@ -1,4 +1,6 @@
 $darkseagreen = #008000
+$lightgray = #eff3f6
+$textdark = #24292e
 
 body
   height 100vh
@@ -180,17 +182,18 @@ header
     &:hover
       color $darkseagreen
   .card-stars
-    font-size 18px
-    padding 8px
-    font-weight bold
-    background-color mediumseagreen
-    color white
-    border-radius 10px
+    font-size 1rem
+    padding 4px
+    font-weight 700
+    background-color $lightgray
+    color $textdark
+    border-radius 4px
     min-width 110px
     text-align center
     flex-direction: row
     &:hover
       background-color $darkseagreen
+      color white
     .fa
       margin-right 10px
       margin-top 2px

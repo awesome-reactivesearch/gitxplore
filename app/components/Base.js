@@ -100,7 +100,7 @@ class Base extends Component {
 						<div className="search-params">
 							<div className="title">
 								<a href="/">
-									<h3><span>Git</span><span>Xplore</span></h3>
+									<h3>GitXplore</h3>
 								</a>
 							</div>
 							<div className="toggle-button" onClick={this.handleToggleFilters}>
