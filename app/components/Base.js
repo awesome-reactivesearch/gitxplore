@@ -45,23 +45,42 @@ class Base extends Component {
 		const result = {
 			desc: (
 				<div className="card-layout">
-					<div className="card-left">
+					<div className="card-top">
 						<img src={res.avatar} className="card-image" />
+						<div className="card-details">
+							<div className="card-title">
+								<a href={res.url} target="_blank">
+									{res.owner}/{res.owner.length + res.name.length > 25 ? <br /> : ''}{res.name}
+								</a>
+							</div>
+							<div className="card-description">
+								{res.description}
+							</div>
+							{
+								res.topics.length > 0 ?
+									<div className="card-tags">
+										{res.topics.slice(0, 5).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
+									</div> :
+									null
+							}
+						</div>
+					</div>
+					<div className="card-bottom">
 						<a href={res.url} target="_blank">
 							<div className="card-stars">
 								<i className="fa fa-star" aria-hidden="true" />{res.stars}
 							</div>
 						</a>
-					</div>
-					<div className="card-right">
-						<div className="card-title">
-							<a href={res.url} target="_blank">
-								{res.owner}/{res.owner.length > 10 || res.repo.length > 10 ? <br /> : ''}{res.repo}
-							</a>
-						</div>
-						<div className="card-tags">
-							{res.tags.slice(0, 5).map(tag => <span className="card-tag" key={`${res.repo}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
-						</div>
+						<a href={res.url} target="_blank">
+							<div className="card-stars">
+								<i className="fa fa-code-fork" aria-hidden="true" />{res.forks}
+							</div>
+						</a>
+						<a href={res.url} target="_blank">
+							<div className="card-stars">
+								<i className="fa fa-eye" aria-hidden="true" />{res.watchers}
+							</div>
+						</a>
 					</div>
 				</div>
 			)
@@ -72,8 +91,8 @@ class Base extends Component {
 	render() {
 		return (
 			<ReactiveBase
-				app="divgitxplore"
-		    credentials="pRT1OUQPM:4c3263ae-e543-4b4b-867a-a30014fae8d5"
+				app="gitxplore-live"
+		    credentials="AltT2FAay:bf8a4df5-5b0e-4f36-a946-aa417b4f9d37"
 				theme="rbc-green"
 			>
 				<div className={`${this.state.showNav ? 'full-header' : ''}`}>
@@ -81,12 +100,11 @@ class Base extends Component {
 						<div className="search-params">
 							<div className="title">
 								<a href="/">
-									<h3>Git<br />Xplore</h3>
+									<h3><span>Git</span><span>Xplore</span></h3>
 								</a>
 								<CategorySearch
-									title="Repos"
 									componentId="repo"
-									appbaseField="repo"
+									appbaseField="name"
 									categoryField="language"
 									placeholder="Search Repos"
 									autocomplete={false}
@@ -94,12 +112,13 @@ class Base extends Component {
 								/>
 							</div>
 							<div className="toggle-button" onClick={this.handleToggleFilters}>
+								<i className="fa fa-search-plus" aria-hidden="true" />
 								Toggle Filters
 							</div>
 							<div className="search-filters">
 								<MultiDropdownList
 									componentId="tags"
-									appbaseField="tags"
+									appbaseField="topics"
 									title="Repo Tags"
 									searchPlaceholder="Search Tags"
 									initialLoader="Loading Tags..."
@@ -116,15 +135,15 @@ class Base extends Component {
 									URLParams={true}
 									range={{
 										"start": 0,
-										"end": 70000
+										"end": 300000
 									}}
 									defaultSelected={{
 										"start": 0,
-										"end": 70000
+										"end": 300000
 									}}
 									rangeLabels={{
 										"start": "0 Stars",
-										"end": "70K Stars"
+										"end": "300K Stars"
 									}}
 									stepValue={50}
 								/>
@@ -135,7 +154,7 @@ class Base extends Component {
 				<div className="content">
 					<ResultCard
 						componentId="SearchResult"
-						appbaseField="repo"
+						appbaseField="name"
 						initialLoader="Loading data..."
 						noResults="Oops! Nothing found."
 						pagination={true}
@@ -168,12 +187,12 @@ class Base extends Component {
 							},
 							{
 								label: "Most recent",
-								appbaseField: "created-on",
+								appbaseField: "pushed",
 								sortBy: "desc"
 							},
 							{
 								label: "Least recent",
-								appbaseField: "created-on",
+								appbaseField: "pushed",
 								sortBy: "asc"
 							}
 						]}
