@@ -4,7 +4,8 @@ import {
 	CategorySearch,
 	ResultCard,
 	MultiDropdownList,
-	RangeSlider
+	RangeSlider,
+	DataSearch
 } from '@appbaseio/reactivesearch';
 
 import './Base.styl';
@@ -59,7 +60,7 @@ class Base extends Component {
 							{
 								res.topics.length > 0 ?
 									<div className="card-tags">
-										{res.topics.slice(0, 5).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
+										{res.topics.slice(0, 13).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
 									</div> :
 									null
 							}
@@ -108,6 +109,13 @@ class Base extends Component {
 								Toggle Filters
 							</div>
 							<div className="search-filters">
+								<DataSearch
+									componentId="description"
+									appbaseField="description"
+									title="Description"
+									placeholder="Seach"
+									URLParams={true}
+								/>
 								<MultiDropdownList
 									componentId="tags"
 									appbaseField="topics"
@@ -137,7 +145,28 @@ class Base extends Component {
 										"start": "0 Stars",
 										"end": "300K Stars"
 									}}
-									stepValue={50}
+									stepValue={100}
+								/>
+								<RangeSlider
+									title="Repo Forks"
+									componentId="forks"
+									appbaseField="forks"
+									initialLoader="Loading data..."
+									showHistogram={false}
+									URLParams={true}
+									range={{
+										"start": 0,
+										"end": 300000
+									}}
+									defaultSelected={{
+										"start": 0,
+										"end": 300000
+									}}
+									rangeLabels={{
+										"start": "0 Forks",
+										"end": "300K Forks"
+									}}
+									stepValue={100}
 								/>
 							</div>
 						</div>
@@ -161,7 +190,7 @@ class Base extends Component {
 						size={6}
 						onData={(res) => this.onData(res, this.toggleTag)}
 						react={{
-							and: ["repo", "tags", "stars"]
+							and: ["repo", "tags", "stars", "description", "forks"]
 						}}
 						sortOptions={[
 							{
@@ -172,6 +201,16 @@ class Base extends Component {
 							{
 								label: "Lowest rated",
 								appbaseField: "stars",
+								sortBy: "asc"
+							},
+							{
+								label: "Most forked",
+								appbaseField: "forks",
+								sortBy: "desc"
+							},
+							{
+								label: "Least forked",
+								appbaseField: "forks",
 								sortBy: "asc"
 							},
 							{

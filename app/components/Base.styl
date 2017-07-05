@@ -122,6 +122,15 @@ header
       color white
       padding-left 20px
 
+  .rbc-datasearch
+    background-color mediumseagreen
+    box-shadow none
+    flex 1
+    color black
+    .rbc-title
+      color white
+      padding-left 20px
+
 .card-layout
   padding 5px 0
   margin 5px
@@ -129,7 +138,7 @@ header
   flex-direction column
   .card-top
     width 100%
-    min-height 180px
+    min-height 225px
     display flex
     justify-content space-between
   .card-details
@@ -150,13 +159,14 @@ header
     letter-spacing normal
   .card-tags
     display flex
-    height 35px
+    height 60px
     flex-wrap wrap
     font-weight bold
     justify-content center
     flex-direction row !important
     margin-bottom 25px
     position relative
+    align-content center
     .card-tag
       cursor pointer
       padding 0 2px
@@ -266,6 +276,8 @@ header
       flex-direction column
       max-height auto
       min-height 200px
+    .card-tags
+      min-height 120px
 
 @media all and (max-width 1100px)
   .rbc-categorysearch
