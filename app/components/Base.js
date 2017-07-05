@@ -60,7 +60,7 @@ class Base extends Component {
 							{
 								res.topics.length > 0 ?
 									<div className="card-tags">
-										{res.topics.slice(0, 13).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
+										{res.topics.slice(0, 7).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
 									</div> :
 									null
 							}
@@ -93,7 +93,7 @@ class Base extends Component {
 		return (
 			<ReactiveBase
 				app="gitxplore-live"
-		    credentials="AltT2FAay:bf8a4df5-5b0e-4f36-a946-aa417b4f9d37"
+		    credentials="mfcug4RXu:186efc11-dc28-44ab-8023-f98f0ab09bc4"
 				theme="rbc-green"
 			>
 				<div className={`${this.state.showNav ? 'full-header' : ''}`}>
@@ -109,13 +109,6 @@ class Base extends Component {
 								Toggle Filters
 							</div>
 							<div className="search-filters">
-								<DataSearch
-									componentId="description"
-									appbaseField="description"
-									title="Description"
-									placeholder="Seach"
-									URLParams={true}
-								/>
 								<MultiDropdownList
 									componentId="tags"
 									appbaseField="topics"
@@ -175,7 +168,7 @@ class Base extends Component {
 				<div className="content">
 					<CategorySearch
 						componentId="repo"
-						appbaseField="name"
+						appbaseField={["name", "description"]}
 						categoryField="language"
 						placeholder="Search Repos"
 						autocomplete={false}
