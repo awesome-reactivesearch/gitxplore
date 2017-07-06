@@ -5,7 +5,8 @@ import {
 	ResultCard,
 	MultiDropdownList,
 	RangeSlider,
-	DataSearch
+	DataSearch,
+	SingleDropdownRange
 } from '@appbaseio/reactivesearch';
 
 import './Base.styl';
@@ -62,7 +63,7 @@ class Base extends Component {
 									<div className="card-tags">
 										{res.topics.slice(0, 7).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
 									</div> :
-									null
+								null
 							}
 						</div>
 					</div>
@@ -93,7 +94,7 @@ class Base extends Component {
 		return (
 			<ReactiveBase
 				app="gitxplore-live"
-		    credentials="mfcug4RXu:186efc11-dc28-44ab-8023-f98f0ab09bc4"
+				credentials="mfcug4RXu:186efc11-dc28-44ab-8023-f98f0ab09bc4"
 				theme="rbc-green"
 			>
 				<div className={`${this.state.showNav ? 'full-header' : ''}`}>
@@ -110,14 +111,44 @@ class Base extends Component {
 							</div>
 							<div className="search-filters">
 								<MultiDropdownList
-									componentId="tags"
-									appbaseField="topics"
-									title="Repo Tags"
-									searchPlaceholder="Search Tags"
-									initialLoader="Loading Tags..."
-									defaultSelected={this.state.tags}
+									componentId="language"
+									appbaseField="language"
+									title="Language"
+									searchPlaceholder="Search"
+									initialLoader="Loading Languages..."
 									size={500}
 									URLParams={true}
+								/>
+								<MultiDropdownList
+									componentId="topics"
+									appbaseField="topics"
+									title="Repo Topics"
+									searchPlaceholder="Search"
+									initialLoader="Loading Topics..."
+									defaultSelected={this.state.tags}
+									size={800}
+									URLParams={true}
+								/>
+								<SingleDropdownRange
+									componentId="pushed"
+									appbaseField="pushed"
+									title="Last Active"
+									URLParams={true}
+									data={[
+										{"start": "2017-05-30T00:00:13Z", "end": "2017-07-06T09:22:30Z", "label": "This month"},
+										{"start": "2000-05-30T00:00:13Z", "end": "2017-05-29T05:41:13Z", "label": "Past"}
+									]}
+								/>
+								<SingleDropdownRange
+									componentId="created"
+									appbaseField="created"
+									title="Created"
+									URLParams={true}
+									data={[
+										{"start": "2017-01-01T00:00:13Z", "end": "2017-07-06T09:22:30Z", "label": "This year"},
+										{"start": "2016-01-01T00:00:13Z", "end": "2017-01-01T00:00:13Z", "label": "Last year"},
+										{"start": "2000-05-30T00:00:13Z", "end": "2016-01-01T00:00:13Z", "label": "Past"},
+									]}
 								/>
 								<RangeSlider
 									title="Repo Stars"
@@ -161,6 +192,27 @@ class Base extends Component {
 									}}
 									stepValue={100}
 								/>
+								<RangeSlider
+									title="Repo Watchers"
+									componentId="watchers"
+									appbaseField="watchers"
+									initialLoader="Loading data..."
+									showHistogram={false}
+									URLParams={true}
+									range={{
+										"start": 0,
+										"end": 300000
+									}}
+									defaultSelected={{
+										"start": 0,
+										"end": 300000
+									}}
+									rangeLabels={{
+										"start": "0 Watchers",
+										"end": "300K Watchers"
+									}}
+									stepValue={100}
+								/>
 							</div>
 						</div>
 					</header>
@@ -183,7 +235,7 @@ class Base extends Component {
 						size={6}
 						onData={(res) => this.onData(res, this.toggleTag)}
 						react={{
-							and: ["repo", "tags", "stars", "description", "forks"]
+							and: ["repo", "topics", "stars", "description", "forks", "pushed", "watchers", "created"]
 						}}
 						sortOptions={[
 							{
