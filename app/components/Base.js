@@ -94,7 +94,7 @@ class Base extends Component {
 		return (
 			<ReactiveBase
 				app="gitxplore-live"
-				credentials="mfcug4RXu:186efc11-dc28-44ab-8023-f98f0ab09bc4"
+				credentials="bYTSo47tj:d001826a-f4ef-42c5-b0aa-a94f29967ba0"
 				theme="rbc-green"
 			>
 				<div className={`${this.state.showNav ? 'full-header' : ''}`}>
@@ -112,7 +112,7 @@ class Base extends Component {
 							<div className="search-filters">
 								<MultiDropdownList
 									componentId="language"
-									appbaseField="language"
+									appbaseField="language.raw"
 									title="Language"
 									searchPlaceholder="Search"
 									initialLoader="Loading Languages..."
@@ -121,7 +121,7 @@ class Base extends Component {
 								/>
 								<MultiDropdownList
 									componentId="topics"
-									appbaseField="topics"
+									appbaseField="topics.raw"
 									title="Repo Topics"
 									searchPlaceholder="Search"
 									initialLoader="Loading Topics..."
@@ -221,7 +221,7 @@ class Base extends Component {
 					<CategorySearch
 						componentId="repo"
 						appbaseField={["name", "description"]}
-						categoryField="language"
+						categoryField="language.raw"
 						placeholder="Search Repos"
 						autocomplete={false}
 						URLParams={true}
@@ -235,7 +235,7 @@ class Base extends Component {
 						size={6}
 						onData={(res) => this.onData(res, this.toggleTag)}
 						react={{
-							and: ["repo", "topics", "stars", "description", "forks", "pushed", "watchers", "created"]
+							and: ["repo", "topics", "stars", "description", "forks", "pushed", "watchers", "created", "language"]
 						}}
 						sortOptions={[
 							{
