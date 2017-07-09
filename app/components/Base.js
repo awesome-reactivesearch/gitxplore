@@ -192,27 +192,6 @@ class Base extends Component {
 									}}
 									stepValue={100}
 								/>
-								<RangeSlider
-									title="Repo Watchers"
-									componentId="watchers"
-									appbaseField="watchers"
-									initialLoader="Loading data..."
-									showHistogram={false}
-									URLParams={true}
-									range={{
-										"start": 0,
-										"end": 300000
-									}}
-									defaultSelected={{
-										"start": 0,
-										"end": 300000
-									}}
-									rangeLabels={{
-										"start": "0 Watchers",
-										"end": "300K Watchers"
-									}}
-									stepValue={100}
-								/>
 							</div>
 						</div>
 					</header>
@@ -235,7 +214,7 @@ class Base extends Component {
 						size={6}
 						onData={(res) => this.onData(res, this.toggleTag)}
 						react={{
-							and: ["repo", "topics", "stars", "description", "forks", "pushed", "watchers", "created", "language"]
+							and: ["repo", "topics", "stars", "description", "forks", "pushed", "created", "language"]
 						}}
 						sortOptions={[
 							{
