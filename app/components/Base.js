@@ -247,12 +247,12 @@ class Base extends Component {
 							},
 							{
 								label: "Alphabetic",
-								appbaseField: "owner",
+								appbaseField: "owner.raw",
 								sortBy: "asc"
 							},
 							{
 								label: "Reverse alphabetic",
-								appbaseField: "owner",
+								appbaseField: "owner.raw",
 								sortBy: "desc"
 							},
 							{
