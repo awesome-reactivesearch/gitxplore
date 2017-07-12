@@ -123,7 +123,7 @@ class Base extends Component {
 									title="Language"
 									searchPlaceholder="Search"
 									initialLoader="Loading Languages..."
-									size={500}
+									size={100}
 									URLParams={true}
 								/>
 								<MultiDropdownList
@@ -134,7 +134,7 @@ class Base extends Component {
 									initialLoader="Loading Topics..."
 									defaultSelected={this.state.tags}
 									onValueChange={value => this.resetTag(value)}
-									size={800}
+									size={100}
 									URLParams={true}
 								/>
 								<SingleDropdownRange
@@ -188,15 +188,15 @@ class Base extends Component {
 									URLParams={true}
 									range={{
 										"start": 0,
-										"end": 300000
+										"end": 180000
 									}}
 									defaultSelected={{
 										"start": 0,
-										"end": 300000
+										"end": 180000
 									}}
 									rangeLabels={{
 										"start": "0 Forks",
-										"end": "300K Forks"
+										"end": "180K Forks"
 									}}
 									stepValue={100}
 								/>
