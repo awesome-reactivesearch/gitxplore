@@ -19,6 +19,7 @@ class Base extends Component {
 			showNav: false
 		};
 		this.toggleTag = this.toggleTag.bind(this);
+		this.resetTag = this.resetTag.bind(this);
 		this.handleToggleFilters = this.handleToggleFilters.bind(this);
 	}
 
@@ -40,6 +41,12 @@ class Base extends Component {
 		}
 		this.setState({
 			tags: nextTags
+		});
+	}
+
+	resetTag(tags) {
+		this.setState({
+			tags
 		});
 	}
 
@@ -126,6 +133,7 @@ class Base extends Component {
 									searchPlaceholder="Search"
 									initialLoader="Loading Topics..."
 									defaultSelected={this.state.tags}
+									onValueChange={value => this.resetTag(value)}
 									size={800}
 									URLParams={true}
 								/>
