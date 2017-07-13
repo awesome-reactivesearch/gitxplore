@@ -123,7 +123,7 @@ class Base extends Component {
 									title="Language"
 									searchPlaceholder="Search"
 									initialLoader="Loading Languages..."
-									size={100}
+									size={1000}
 									URLParams={true}
 								/>
 								<MultiDropdownList
@@ -134,7 +134,7 @@ class Base extends Component {
 									initialLoader="Loading Topics..."
 									defaultSelected={this.state.tags}
 									onValueChange={value => this.resetTag(value)}
-									size={100}
+									size={1000}
 									URLParams={true}
 								/>
 								<SingleDropdownRange
