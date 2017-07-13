@@ -164,7 +164,7 @@ class Base extends Component {
 									appbaseField="stars"
 									initialLoader="Loading data..."
 									showHistogram={false}
-									URLParams={true}
+									URLParams={false}
 									range={{
 										"start": 0,
 										"end": 300000
@@ -185,7 +185,7 @@ class Base extends Component {
 									appbaseField="forks"
 									initialLoader="Loading data..."
 									showHistogram={false}
-									URLParams={true}
+									URLParams={false}
 									range={{
 										"start": 0,
 										"end": 180000
@@ -207,7 +207,7 @@ class Base extends Component {
 				<div className="content">
 					<CategorySearch
 						componentId="repo"
-						appbaseField={["name", "description"]}
+						appbaseField={["name", "description", "name.raw", "fullname", "owner", "topics"]}
 						categoryField="language.raw"
 						placeholder="Search Repos"
 						autocomplete={false}
