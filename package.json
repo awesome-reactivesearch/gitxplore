@@ -39,7 +39,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
-    "@appbaseio/reactivesearch": "^0.5.28",
+    "@appbaseio/reactivesearch": "^0.6.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "webpack-dev-server": "^2.4.2"
