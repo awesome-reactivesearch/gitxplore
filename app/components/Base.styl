@@ -224,7 +224,8 @@ header
     border-radius 4px
     min-width 110px
     text-align center
-    flex-direction: row
+    flex-direction row
+    justify-content center
     &:hover
       background-color $darkseagreen
       color white
@@ -381,3 +382,10 @@ header
         font-size 1.65em
   .rbc-categorysearch
     width calc(100% - 15em)
+  .rbc-resultcard-scroll-container
+    .rbc-resultcard-item__title
+      padding 0
+    .rbc-resultcard-item__desc
+      padding 0
+  .card-layout
+    width 97%
