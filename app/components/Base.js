@@ -108,7 +108,7 @@ class Base extends Component {
 					<header>
 						<div className="search-params">
 							<div className="title">
-								<a href="">
+								<a href="https://appbaseio-apps.github.io/gitxplore/">
 									<h3>GitXplore</h3>
 								</a>
 							</div>

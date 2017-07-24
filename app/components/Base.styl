@@ -327,6 +327,8 @@ header
   .toggle-button
     display block
     margin-top 10px
+    margin-left auto
+    margin-right auto
     z-index 4
     .fa
       padding-right 7px
@@ -376,14 +378,41 @@ header
     .card-description
       max-width 400px
 
-@media all and (max-width 420px)
+@media all and (max-width 480px)
+  body
+    width 100%
   header
     min-width auto
+    padding-left 0
+    padding-right 0
+    height 180px
     .title
+      margin-top -20px
+      margin-left auto
+      margin-right auto
       h3
-        font-size 1.65em
+        left 50%
+        transform translateX(-50%)
+        padding-left 3em
+        padding-right 3em
+        width auto
+        padding-bottom 115px
+
+    .toggle-button
+      display block
+      margin-top 50px
+      margin-left auto
+      margin-right auto
+      z-index 4
+      .fa
+        padding-right 7px
   .rbc-categorysearch
-    width calc(100% - 15em)
+    width calc(100% - 19em)
+    top 50px
+    width 80%
+    right 8%
+    input
+      height 50px
   .rbc-resultcard-scroll-container
     .rbc-resultcard-item__title
       padding 0
@@ -391,3 +420,10 @@ header
       padding 0
   .card-layout
     width 97%
+    .card-stars
+      min-width auto
+  .full-header
+    header
+      .search-params
+        .search-filters
+          margin-top 140px
