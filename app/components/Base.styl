@@ -150,13 +150,19 @@ header
       color white
       padding-left 20px
 
+.rbc-resultcard-scroll-container
+  .rbc-resultcard-item__title
+    padding 0
+
 .card-layout
   padding 5px 0
   margin 5px
   display flex
   flex-direction column
   height 100%
-  align-items space-around
+  justify-content space-around
+  div
+    height auto !important
   .card-top
     width 100%
     min-height 225px
@@ -270,7 +276,7 @@ header
     div
       display flex
       align-items center
-      margin-bottom 5px
+      height 100%
     &:hover
       box-shadow 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)
   .rbc-resultcard-item__image
