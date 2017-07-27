@@ -133,6 +133,7 @@ class Base extends Component {
 									searchPlaceholder="Search"
 									initialLoader="Loading Topics..."
 									defaultSelected={this.state.tags}
+									queryFormat="and"
 									onValueChange={value => this.resetTag(value)}
 									size={1000}
 									URLParams={true}
