@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@appbaseio/reactivebase@1.0.0-beta04":
-  version "1.0.0-beta04"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-beta04.tgz#9b86e3c865178b697428471fdc3d022cb2490f73"
+"@appbaseio/reactivebase@1.0.0-beta05":
+  version "1.0.0-beta05"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivebase/-/reactivebase-1.0.0-beta05.tgz#6aa3e418711503ae68d69b40e8ba7eb15a6b5d3c"
   dependencies:
     appbase-js "^0.11.0"
     classnames "^2.2.5"
@@ -21,22 +21,22 @@
     react-select "^1.0.0-rc.3"
     url-search-params "^0.8.0"
 
-"@appbaseio/reactivemaps@1.0.0-beta01":
-  version "1.0.0-beta01"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-beta01.tgz#1660c48667bbe46fb2947757fffe664962aaa520"
+"@appbaseio/reactivemaps@1.0.0-beta02":
+  version "1.0.0-beta02"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivemaps/-/reactivemaps-1.0.0-beta02.tgz#7680e2d5e2e0956ee841c3f4094f9024569432c1"
   dependencies:
-    "@appbaseio/reactivebase" "1.0.0-beta04"
+    "@appbaseio/reactivebase" "1.0.0-beta05"
     axios "^0.15.2"
     google-map-react "^0.14.5"
     google-maps "^3.2.1"
     node-sass "^4.5.1"
     react-google-maps "^4.11.0"
 
-"@appbaseio/reactivesearch@^0.6.1":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-0.6.1.tgz#0eda51bf8d8e2486b83c0224d33557cab1784fb0"
+"@appbaseio/reactivesearch@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@appbaseio/reactivesearch/-/reactivesearch-0.6.2.tgz#bf08bf0ecfa8ec1a1636057b6e11b144438402f1"
   dependencies:
-    "@appbaseio/reactivemaps" "1.0.0-beta01"
+    "@appbaseio/reactivemaps" "1.0.0-beta02"
     react-stars "^2.1.0"
 
 JSONStream@^1.0.4:
