@@ -5,7 +5,6 @@ import {
 	ResultCard,
 	MultiDropdownList,
 	RangeSlider,
-	DataSearch,
 	SingleDropdownRange
 } from '@appbaseio/reactivesearch';
 
@@ -15,11 +14,11 @@ class Base extends Component {
 	constructor() {
 		super();
 		this.state = {
-			tags: [],
+			topics: [],
 			showNav: false
 		};
-		this.toggleTag = this.toggleTag.bind(this);
-		this.resetTag = this.resetTag.bind(this);
+		this.toggleTopic = this.toggleTopic.bind(this);
+		this.resetTopic = this.resetTopic.bind(this);
 		this.handleToggleFilters = this.handleToggleFilters.bind(this);
 	}
 
@@ -30,27 +29,27 @@ class Base extends Component {
 		});
 	}
 
-	toggleTag(tag) {
-		const tags = [ ...this.state.tags ];
-		const index = tags.indexOf(tag);
-		let nextTags = [];
+	toggleTopic(topic) {
+		const topics = [ ...this.state.topics ];
+		const index = topics.indexOf(topic);
+		let nextTopics = [];
 		if (index === -1) {
-			nextTags = [ ...tags, tag ];
+			nextTopics = [ ...topics, topic ];
 		} else {
-			nextTags = tags.slice(0, index).concat(tags.slice(index + 1));
+			nextTopics = topics.slice(0, index).concat(topics.slice(index + 1));
 		}
 		this.setState({
-			tags: nextTags
+			topics: nextTopics
 		});
 	}
 
-	resetTag(tags) {
+	resetTopic(topics) {
 		this.setState({
-			tags
+			topics
 		});
 	}
 
-	onData(res, toggleTag) {
+	onData(res, toggleTopic) {
 		const result = {
 			desc: (
 				<div className="card-layout">
@@ -68,7 +67,7 @@ class Base extends Component {
 							{
 								res.topics.length > 0 ?
 									<div className="card-tags">
-										{res.topics.slice(0, 7).map(tag => <span className="card-tag" key={`${res.name}-${tag}`} onClick={() => toggleTag(tag)}>#{tag}</span>)}
+										{res.topics.slice(0, 7).map(topic => <span className="card-tag" key={`${res.name}-${topic}`} onClick={() => toggleTopic(topic)}>#{topic}</span>)}
 									</div> :
 								null
 							}
@@ -121,51 +120,42 @@ class Base extends Component {
 									componentId="language"
 									appbaseField="language.raw"
 									title="Language"
-									searchPlaceholder="Search"
-									initialLoader="Loading Languages..."
-									size={1000}
-									URLParams={true}
+									size={100}
 								/>
 								<MultiDropdownList
 									componentId="topics"
 									appbaseField="topics.raw"
 									title="Repo Topics"
-									searchPlaceholder="Search"
-									initialLoader="Loading Topics..."
-									defaultSelected={this.state.tags}
-									queryFormat="and"
-									onValueChange={value => this.resetTag(value)}
+									defaultSelected={this.state.topics}
 									size={1000}
-									URLParams={true}
+									queryFormat="and"
+									onValueChange={value => this.resetTopic(value)}
 								/>
 								<SingleDropdownRange
 									componentId="pushed"
 									appbaseField="pushed"
 									title="Last Active"
-									URLParams={true}
 									data={[
-										{"start": "2017-05-30T00:00:13Z", "end": "2017-07-06T09:22:30Z", "label": "This month"},
-										{"start": "2000-05-30T00:00:13Z", "end": "2017-05-29T05:41:13Z", "label": "Past"}
+										{"start": "now-1M", "end": "now", "label": "Last 30 days"},
+										{"start": "now-6M", "end": "now", "label": "Last 6 months"},
+										{"start": "now-1y", "end": "now", "label": "Last year"}
 									]}
 								/>
 								<SingleDropdownRange
 									componentId="created"
 									appbaseField="created"
 									title="Created"
-									URLParams={true}
 									data={[
-										{"start": "2017-01-01T00:00:13Z", "end": "2017-07-06T09:22:30Z", "label": "This year"},
-										{"start": "2016-01-01T00:00:13Z", "end": "2017-01-01T00:00:13Z", "label": "Last year"},
-										{"start": "2000-05-30T00:00:13Z", "end": "2016-01-01T00:00:13Z", "label": "Past"},
+										{"start": "now-1y", "end": "now", "label": "Last year"},
+										{"start": "now-3y", "end": "now", "label": "Last 3 years"},
+										{"start": "now-10y", "end": "now", "label": "All time"},
 									]}
 								/>
 								<RangeSlider
-									title="Repo Stars"
 									componentId="stars"
 									appbaseField="stars"
-									initialLoader="Loading data..."
+									title="Repo Stars"
 									showHistogram={false}
-									URLParams={false}
 									range={{
 										"start": 0,
 										"end": 300000
@@ -181,12 +171,10 @@ class Base extends Component {
 									stepValue={100}
 								/>
 								<RangeSlider
-									title="Repo Forks"
 									componentId="forks"
 									appbaseField="forks"
-									initialLoader="Loading data..."
+									title="Repo Forks"
 									showHistogram={false}
-									URLParams={false}
 									range={{
 										"start": 0,
 										"end": 180000
@@ -210,59 +198,63 @@ class Base extends Component {
 						componentId="repo"
 						appbaseField={["name", "description", "name.raw", "fullname", "owner", "topics"]}
 						categoryField="language.raw"
+						queryFormat="and"
 						placeholder="Search Repos"
-						autocomplete={false}
 						URLParams={true}
 					/>
 					<ResultCard
 						componentId="SearchResult"
 						appbaseField="name"
-						initialLoader="Loading data..."
-						noResults="Oops! Nothing found."
+						noResults="No results were found, try clearing all the filters."
 						pagination={true}
 						size={6}
-						onData={(res) => this.onData(res, this.toggleTag)}
+						onData={(res) => this.onData(res, this.toggleTopic)}
 						react={{
 							and: ["repo", "topics", "stars", "description", "forks", "pushed", "created", "language"]
 						}}
 						sortOptions={[
 							{
-								label: "Highest rated",
+								label: "Best Match",
+								appbaseField: "_score",
+								sortBy: "desc"
+							},
+							{
+								label: "Most Stars",
 								appbaseField: "stars",
 								sortBy: "desc"
 							},
 							{
-								label: "Lowest rated",
+								label: "Fewest Stars",
 								appbaseField: "stars",
 								sortBy: "asc"
 							},
 							{
-								label: "Most forked",
+								label: "Most Forks",
 								appbaseField: "forks",
 								sortBy: "desc"
 							},
 							{
-								label: "Least forked",
+								label: "Fewest Forks",
 								appbaseField: "forks",
 								sortBy: "asc"
 							},
 							{
-								label: "Alphabetic",
+								label: "A to Z",
 								appbaseField: "owner.raw",
 								sortBy: "asc"
 							},
 							{
-								label: "Reverse alphabetic",
+								label: "Z to A",
 								appbaseField: "owner.raw",
 								sortBy: "desc"
 							},
 							{
-								label: "Most recent",
+								label: "Recently Updated",
 								appbaseField: "pushed",
 								sortBy: "desc"
 							},
 							{
-								label: "Least recent",
+								label: "Least Recently Updated",
 								appbaseField: "pushed",
 								sortBy: "asc"
 							}
