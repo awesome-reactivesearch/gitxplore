@@ -196,7 +196,6 @@ class Base extends Component {
 										"end": "180K Forks"
 									}}
 									stepValue={50}
-									URLParams
 								/>
 							</div>
 						</div>
