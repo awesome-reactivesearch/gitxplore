@@ -268,7 +268,10 @@ class Base extends Component {
 							}
 						]}
 					/>
-					<div className="blog-container">
+					<div
+						className="blog-container"
+						onClick={() => window.open('https://medium.appbase.io/how-to-build-a-github-search-ui-in-60-minutes-295109211c70')}
+					>
 						<a
 							className="blog"
 							href="https://medium.appbase.io/how-to-build-a-github-search-ui-in-60-minutes-295109211c70"
