@@ -277,7 +277,7 @@ class Base extends Component {
 							href="https://medium.appbase.io/how-to-build-a-github-search-ui-in-60-minutes-295109211c70"
 							target="_blank"
 						>
-							<i className="fa fa-newspaper-o" /> &nbsp;Read about building this app
+							<i className="fa fa-newspaper-o" /> &nbsp;Read How We Built It!
 						</a>
 					</div>
 				</div>
