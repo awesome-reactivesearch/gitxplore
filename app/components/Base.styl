@@ -6,16 +6,23 @@ body
   height 100vh
   background-color white
 
-.blog
-  padding-left: 2em;
+.blog-container
+  padding: 7px;
+  border-radius: 4px;
+  margin-left: 20px;
   bottom: 1em;
   position: absolute;
-  font-size: 1.2em;
-  color: mediumseagreen;
-  &:visited
-    color: mediumseagreen;
+  background-color: mediumseagreen;
   &:hover
-    color: $darkseagreen;
+    background-color: $darkseagreen;
+
+.blog
+  font-size: 1.2em;
+  color: white;
+  &:visited
+    color: white;
+  &:hover
+    color: white;
 
 .toggle-button
   cursor pointer
@@ -394,6 +401,15 @@ header
         position relative
 
 @media all and (max-width 700px)
+  .blog-container
+    padding: 7px;
+    border-radius: 0;
+    margin-left: 0;
+    bottom: -1.8em;
+    position: absolute;
+    background-color: mediumseagreen;
+    width: 100%;
+    text-align: center;
   .rbc-resultcard-scroll-container
     .rbc-resultcard-item
       width 100%

@@ -268,13 +268,15 @@ class Base extends Component {
 							}
 						]}
 					/>
-					<a
-						className="blog"
-						href="https://medium.appbase.io/how-to-build-a-github-search-ui-in-60-minutes-295109211c70"
-						target="_blank"
-					>
-						Read about building this app
-					</a>
+					<div className="blog-container">
+						<a
+							className="blog"
+							href="https://medium.appbase.io/how-to-build-a-github-search-ui-in-60-minutes-295109211c70"
+							target="_blank"
+						>
+							<i className="fa fa-newspaper-o" /> &nbsp;Read about building this app
+						</a>
+					</div>
 				</div>
 			</ReactiveBase>
 		);
