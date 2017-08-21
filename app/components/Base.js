@@ -99,8 +99,8 @@ class Base extends Component {
 	render() {
 		return (
 			<ReactiveBase
-				app="gitxplore-live"
-				credentials="bYTSo47tj:d001826a-f4ef-42c5-b0aa-a94f29967ba0"
+				app="gitxplore-latest"
+				credentials="W7ZomvYgQ:df994896-a25d-4d4e-8724-e26659b93001"
 				theme="rbc-green"
 			>
 				<div className={`${this.state.showNav ? 'full-header' : ''}`}>
