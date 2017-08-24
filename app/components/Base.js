@@ -121,6 +121,7 @@ class Base extends Component {
 									appbaseField="language.raw"
 									title="Language"
 									size={100}
+									URLParams
 								/>
 								<MultiDropdownList
 									componentId="topics"
@@ -130,6 +131,7 @@ class Base extends Component {
 									size={1000}
 									queryFormat="and"
 									onValueChange={value => this.resetTopic(value)}
+									URLParams
 								/>
 								<SingleDropdownRange
 									componentId="pushed"
@@ -140,6 +142,7 @@ class Base extends Component {
 										{"start": "now-6M", "end": "now", "label": "Last 6 months"},
 										{"start": "now-1y", "end": "now", "label": "Last year"}
 									]}
+									URLParams
 								/>
 								<SingleDropdownRange
 									componentId="created"
@@ -158,6 +161,7 @@ class Base extends Component {
 										{"start": "2008-01-01T00:00:00Z", "end": "2008-12-31T23:59:59Z", "label": "2008"},
 										{"start": "2007-01-01T00:00:00Z", "end": "2007-12-31T23:59:59Z", "label": "2007"}
 									]}
+									URLParams
 								/>
 								<RangeSlider
 									componentId="stars"
