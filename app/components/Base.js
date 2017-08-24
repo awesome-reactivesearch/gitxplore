@@ -181,7 +181,6 @@ class Base extends Component {
 										"end": "300K Stars"
 									}}
 									stepValue={1}
-									URLParams
 								/>
 								<RangeSlider
 									componentId="forks"
@@ -201,7 +200,6 @@ class Base extends Component {
 										"end": "180K Forks"
 									}}
 									stepValue={1}
-									URLParams
 								/>
 							</div>
 						</div>
