@@ -44,8 +44,9 @@ class Base extends Component {
 	}
 
 	resetTopic(topics) {
+		const nextTopics = topics || [];
 		this.setState({
-			topics
+			topics: nextTopics
 		});
 	}
 
@@ -100,6 +101,7 @@ class Base extends Component {
 		return (
 			<ReactiveBase
 				app="gitxplore-latest"
+				type="gitxplore-latest"
 				credentials="W7ZomvYgQ:df994896-a25d-4d4e-8724-e26659b93001"
 				theme="rbc-green"
 			>
@@ -118,14 +120,14 @@ class Base extends Component {
 							<div className="search-filters">
 								<MultiDropdownList
 									componentId="language"
-									appbaseField="language.raw"
+									dataField="language.raw"
 									title="Language"
 									size={100}
 									URLParams
 								/>
 								<MultiDropdownList
 									componentId="topics"
-									appbaseField="topics.raw"
+									dataField="topics.raw"
 									title="Repo Topics"
 									defaultSelected={this.state.topics}
 									size={1000}
@@ -135,7 +137,7 @@ class Base extends Component {
 								/>
 								<SingleDropdownRange
 									componentId="pushed"
-									appbaseField="pushed"
+									dataField="pushed"
 									title="Last Active"
 									data={[
 										{"start": "now-1M", "end": "now", "label": "Last 30 days"},
@@ -146,7 +148,7 @@ class Base extends Component {
 								/>
 								<SingleDropdownRange
 									componentId="created"
-									appbaseField="created"
+									dataField="created"
 									title="Created"
 									data={[
 										{"start": "2017-01-01T00:00:00Z", "end": "2017-12-31T23:59:59Z", "label": "2017"},
@@ -165,7 +167,7 @@ class Base extends Component {
 								/>
 								<RangeSlider
 									componentId="stars"
-									appbaseField="stars"
+									dataField="stars"
 									title="Repo Stars"
 									showHistogram={false}
 									range={{
@@ -184,7 +186,7 @@ class Base extends Component {
 								/>
 								<RangeSlider
 									componentId="forks"
-									appbaseField="forks"
+									dataField="forks"
 									title="Repo Forks"
 									showHistogram={false}
 									range={{
@@ -208,7 +210,7 @@ class Base extends Component {
 				<div className="content">
 					<CategorySearch
 						componentId="repo"
-						appbaseField={["name", "description", "name.raw", "fullname", "owner", "topics"]}
+						dataField={["name", "description", "name.raw", "fullname", "owner", "topics"]}
 						categoryField="language.raw"
 						queryFormat="and"
 						placeholder="Search Repos"
@@ -216,7 +218,7 @@ class Base extends Component {
 					/>
 					<ResultCard
 						componentId="SearchResult"
-						appbaseField="name"
+						dataField="name"
 						noResults="No results were found, try clearing all the filters."
 						pagination={true}
 						size={6}
@@ -227,47 +229,47 @@ class Base extends Component {
 						sortOptions={[
 							{
 								label: "Best Match",
-								appbaseField: "_score",
+								dataField: "_score",
 								sortBy: "desc"
 							},
 							{
 								label: "Most Stars",
-								appbaseField: "stars",
+								dataField: "stars",
 								sortBy: "desc"
 							},
 							{
 								label: "Fewest Stars",
-								appbaseField: "stars",
+								dataField: "stars",
 								sortBy: "asc"
 							},
 							{
 								label: "Most Forks",
-								appbaseField: "forks",
+								dataField: "forks",
 								sortBy: "desc"
 							},
 							{
 								label: "Fewest Forks",
-								appbaseField: "forks",
+								dataField: "forks",
 								sortBy: "asc"
 							},
 							{
 								label: "A to Z",
-								appbaseField: "owner.raw",
+								dataField: "owner.raw",
 								sortBy: "asc"
 							},
 							{
 								label: "Z to A",
-								appbaseField: "owner.raw",
+								dataField: "owner.raw",
 								sortBy: "desc"
 							},
 							{
 								label: "Recently Updated",
-								appbaseField: "pushed",
+								dataField: "pushed",
 								sortBy: "desc"
 							},
 							{
 								label: "Least Recently Updated",
-								appbaseField: "pushed",
+								dataField: "pushed",
 								sortBy: "asc"
 							}
 						]}
