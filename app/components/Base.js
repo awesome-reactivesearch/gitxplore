@@ -224,7 +224,7 @@ class Base extends Component {
 						size={6}
 						onData={(res) => this.onData(res, this.toggleTopic)}
 						react={{
-							and: ["repo", "topics", "stars", "description", "forks", "pushed", "created", "language"]
+							and: ["repo", "topics", "stars", "forks", "pushed", "created", "language"]
 						}}
 						sortOptions={[
 							{
