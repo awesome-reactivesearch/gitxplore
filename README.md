@@ -1,6 +1,6 @@
-# GitXplore :octocat:
+## GitXplore: A github repository search explorer UI.
 
-A reactive github repo search
+This app is built with v1 of Reactivesearch, you can find the latest app built with v2 of Reactivesearch at https://github.com/appbaseio-apps/gitxplore-app. Blog post for the new app can be found on a [Freecodecamp post here](medium.freecodecamp.org/building-a-github-repo-explorer-with-react-and-elasticsearch-8e1190e59c13).
 
 Built using [react](https://facebook.github.io/react/), [reactivesearch](https://opensource.appbase.io/reactivesearch/) and [appbase.io](https://appbase.io/)
 
